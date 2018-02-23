@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <RollingFile name="ROLLING" fileName="./logs/GDAXTrader.log" filePattern="./logs/GDAXTrader.log-%i">
+            <PatternLayout pattern="%d %p %c: %m%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="5 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+      		<PatternLayout pattern="%m%n"/>
+    		</Console>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="ROLLING" level="debug" />
+            <AppenderRef ref="CONSOLE" />
+        </Root>
+    </Loggers>
+</Configuration>
